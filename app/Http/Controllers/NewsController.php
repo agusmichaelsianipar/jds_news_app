@@ -13,6 +13,8 @@ class NewsController extends Controller
 
     public function __construct(NewsRepositoryInterface $newsRepositoryInterface)
     {
+        $this->middleware(['auth:api','isAdmin'])->except('index','show');
+
         $this->newsRepository = $newsRepositoryInterface;
     }
 

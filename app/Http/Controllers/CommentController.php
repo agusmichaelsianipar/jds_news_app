@@ -12,6 +12,8 @@ class CommentController extends Controller
     public function __construct(CommentRepositoryInterface $commentRepositoryInterface)
     {
         $this->commentRepository = $commentRepositoryInterface;
+
+        $this->middleware('auth:api');
     }
     public function show($id){
         
